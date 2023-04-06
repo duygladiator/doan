@@ -73,20 +73,31 @@ class UserController extends Controller
         // $request = $request->all();
 
         //bo~ field _token
+        // $request = $request->except('_token', 'password_confirmation');
         $request = $request->except('_token', 'password_confirmation');
+
         //factored code
         $request[] = date('Y-m-d H:i:s');
         $request[] = date('Y-m-d H:i:s');
         $request['password'] = Hash::make($request['password']);
 
 
-
-
         // DB::insert('INSERT INTO users (name, phone, email, password, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)', [$request['name'],  $request['phone'], $request['email'], $request['password'], date('Y-m-d H:i:s'), date('Y-m-d H:i:s')]);
 
 
-        //factored code
+        //factored code sql raw
         DB::insert('INSERT INTO users (name, phone, email, password, status, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?)', array_values($request));
+
+        // DB::table('users')->insert([
+        //     'name' => $request->name,
+        //     'phone' => $request->phone,
+        //     'email' => $request->email,
+        //     'password' => $request->password,
+        //     'status' => $request->status,
+        //     'created_at' => $request->created_at,
+        //     'updated_at' => $request->updated_at,
+        //     // array_values($request)
+        // ]);
 
         // dd($request);
 

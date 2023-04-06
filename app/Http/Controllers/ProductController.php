@@ -59,6 +59,8 @@ class ProductController extends Controller
 
         // dd($request->all());
 
+
+
         return redirect()->route('admin.products')->with('message', 'Product Added');
     }
 
