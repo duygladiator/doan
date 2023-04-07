@@ -100,7 +100,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/products', [ProductController::class, 'index'])->name('admin.products');
     Route::post('/products/save', [ProductController::class, 'store'])->name('admin.product.save');
     Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('admin.product.edit');
-    Route::post('/product/update', [ProductController::class, 'update'])->name('admin.product.update');
+    Route::post('/product/update/{id}', [ProductController::class, 'update'])->name('admin.product.update');
     Route::get('/product/delete/{id}', [ProductController::class, 'delete'])->name('admin.product.delete');
 
 

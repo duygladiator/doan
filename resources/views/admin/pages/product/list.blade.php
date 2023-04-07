@@ -49,6 +49,7 @@
                     <th>Short Description</th>
                     <th>Description</th>
                     <th>Quantity</th>
+                    <th>Image</th>
                     {{-- <th>Created At</th>
                     <th>Updated At</th> --}}
                     <th>Action</th>
@@ -61,8 +62,11 @@
                       <td>{{ $value->price }}</td>
                       <td>{{ $value->discount_price }}</td>
                       <td>{{ $value->short_description }}</td>
-                      <td>{{ $value->description }}</td>
+                      <td>{!! $value->description !!}</td>
                       <td>{{ $value->quantity }}</td>
+                      <td>
+                        <img height="100" src="{{ asset('images') . '/' . $value->image_url }}" alt="">
+                      </td>
                       {{-- <td>{{ $value->image_url }}</td> --}}
                       <td><a href="{{ route('admin.product.edit', [$value->id]) }}">Edit</a> |
                         <!-- Button trigger modal -->
@@ -77,7 +81,7 @@
                           <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">DELETE USER</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">DELETE PRODUCT</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                   aria-label="Close"></button>
                               </div>
@@ -99,19 +103,6 @@
                   @empty
                   @endforelse
                 </tbody>
-                <tfoot>
-                  <tr>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Discount Price</th>
-                    <th>Short Description</th>
-                    <th>Description</th>
-                    <th>Quantity</th>
-                    {{-- <th>Created At</th>
-                    <th>Updated At</th> --}}
-                    <th>Action</th>
-                  </tr>
-                </tfoot>
               </table>
             </div>
             <!-- /.card-body -->

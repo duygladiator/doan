@@ -15,7 +15,7 @@ class Product extends Model
         $imageName = null;
         if ($request->image_url) {
             $imageName = uniqid() . '_' . $request->image_url->getClientOriginalName();
-            $request->image_url->move(public_path('public/images'), $imageName);
+            $request->image_url->move(public_path('images'), $imageName);
         }
 
         DB::table('products')->insert([
@@ -26,6 +26,32 @@ class Product extends Model
             'description' => $request->description,
             'quantity' => $request->quantity,
             'image_url' => $imageName
+        ]);
+    }
+
+    public function updateProduct($request)
+    {
+        $product = DB::table('products')->where('id', $request['id'])->first();
+
+        $oldImg = $product->image_url;
+
+        $imageName = null;
+        if ($request->image_url) {
+            $imageName = uniqid() . '_' . $request->image_url->getClientOriginalName();
+            $request->image_url->move(public_path('images'), $imageName);
+            unlink("images/" . $oldImg);
+        }
+        if (!is_null($imageName)) {
+            DB::table('products')->where('id', $request['id'])->update(['image_url' => $imageName]);
+        }
+
+        $request = $request->except('_token');
+        DB::table('products')->where('id', $request['id'])->update([
+            'name' => $request['name'],
+            'price' => $request['price'],
+            'discount_price' => $request['discount_price'],
+            'description' => $request['description'],
+            'short_description' => $request['short_description'],
         ]);
     }
 }
