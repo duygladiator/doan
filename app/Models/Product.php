@@ -25,6 +25,7 @@ class Product extends Model
             'short_description' => $request->short_description,
             'description' => $request->description,
             'quantity' => $request->quantity,
+            'status' => $request->status,
             'image_url' => $imageName
         ]);
     }
@@ -52,6 +53,7 @@ class Product extends Model
             'discount_price' => $request['discount_price'],
             'description' => $request['description'],
             'short_description' => $request['short_description'],
+            'status' => $request['status'],
         ]);
     }
 }

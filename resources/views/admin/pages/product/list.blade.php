@@ -49,6 +49,7 @@
                     <th>Short Description</th>
                     <th>Description</th>
                     <th>Quantity</th>
+                    <th>Status</th>
                     <th>Image</th>
                     {{-- <th>Created At</th>
                     <th>Updated At</th> --}}
@@ -59,11 +60,16 @@
                   @forelse ($products as $value)
                     <tr>
                       <td>{{ $value->name }}</td>
-                      <td>{{ $value->price }}</td>
+                      <td>{{ number_format($value->price) }}</td>
                       <td>{{ $value->discount_price }}</td>
                       <td>{{ $value->short_description }}</td>
                       <td>{!! $value->description !!}</td>
                       <td>{{ $value->quantity }}</td>
+                      @if ($value->status)
+                        <td>Show</td>
+                      @else
+                        <td>Hide</td>
+                      @endif
                       <td>
                         <img height="100" src="{{ asset('images') . '/' . $value->image_url }}" alt="">
                       </td>

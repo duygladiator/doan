@@ -83,6 +83,23 @@
                       <div class="text-danger">{{ $message }}</div>
                     @enderror
                   </div>
+                  <div class="form-group d-flex gap-4">
+                    <label for="status">Status:</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="status" id="status" value="1"
+                        {{ $product->status ? 'checked' : '' }}>
+                      <label class="form-check-label">
+                        Show
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="status" id="status" value="0"
+                        {{ !$product->status ? 'checked' : '' }}>
+                      <label class="form-check-label">
+                        Hide
+                      </label>
+                    </div>
+                  </div>
                   <div class="form-group">
                     <label for="image_url">Image</label>
                     <img height="100" src="{{ asset('images') . '/' . $product->image_url }}">

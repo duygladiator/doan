@@ -87,6 +87,21 @@
                       <div class="text-danger">{{ $message }}</div>
                     @enderror
                   </div>
+                  <div class="form-group d-flex gap-4">
+                    <label for="status">Status:</label>
+                    <div class="form-check">
+                      <input class="form-check-input" value="1" type="radio" name="status" id="status">
+                      <label class="form-check-label">
+                        Show
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" value="0" type="radio" name="status" id="status">
+                      <label class="form-check-label">
+                        Hide
+                      </label>
+                    </div>
+                  </div>
                   <div class="form-group">
                     <label for="image_url">Image</label>
                     <input type="file" class="form-control" name="image_url" id="image_url">
