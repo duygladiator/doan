@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
+use App\Models\Category;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -113,4 +115,25 @@ Route::prefix('admin')->group(function () {
     })->name('admin.add-product');
 
     Route::post('/product/save', [ProductController::class, 'store'])->name('admin.product.save');
+});
+
+Route::get('them-user', function () {
+    User::create([
+        'name' => 'Member 2',
+        'email' => 'mem2@green.com',
+        'password' => bcrypt('12345')
+    ]);
+});
+
+Route::get('them-category', function () {
+    Category::create([
+        'name' => 'SP02',
+        'user_id' => 2
+    ]);
+});
+
+Route::get('cat-on-user', function () {
+    // $category = User::all()->toArray();
+    $category = User::with('categories')->get()->toArray();
+    dd($category);
 });
