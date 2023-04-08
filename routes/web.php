@@ -134,6 +134,6 @@ Route::get('them-category', function () {
 
 Route::get('cat-on-user', function () {
     // $category = User::all()->toArray();
-    $category = User::with('categories')->get()->toArray();
+    $category = User::with('category')->get()->toArray();
     dd($category);
 });

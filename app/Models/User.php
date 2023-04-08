@@ -53,7 +53,7 @@ class User extends Model
     /**
      * Get the comments for the blog post.
      */
-    public function categories()
+    public function category()
     {
         return $this->hasMany(Category::class);
     }
