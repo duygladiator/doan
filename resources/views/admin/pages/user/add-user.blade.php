@@ -102,6 +102,22 @@
                       </label>
                     </div>
                   </div>
+
+                  <div class="form-group d-flex gap-4">
+                    <label for="is_admin">Role:</label>
+                    <div class="form-check">
+                      <input class="form-check-input" value="0" type="radio" name="is_admin" id="is_admin">
+                      <label class="form-check-label">
+                        User
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" value="1" type="radio" name="is_admin" id="is_admin">
+                      <label class="form-check-label">
+                        Admin
+                      </label>
+                    </div>
+                  </div>
                   {{-- <div class="form-group">
                     <label for="price">Created_At</label>
                     <input type="text" class="form-control" name="created_at" id="created_at" placeholder="Created_At">

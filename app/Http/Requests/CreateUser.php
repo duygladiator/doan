@@ -30,6 +30,7 @@ class CreateUser extends FormRequest
             // 'password' => 'required|confirmed',
             'password' => 'required',
             'status' => 'required',
+            'is_admin' => 'required',
         ];
     }
 

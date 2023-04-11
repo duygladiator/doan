@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateUser;
 use App\Http\Requests\UpdateUser;
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use PhpParser\Node\Expr\FuncCall;
@@ -86,7 +88,7 @@ class UserController extends Controller
 
 
         //factored code sql raw
-        DB::insert('INSERT INTO users (name, phone, email, password, status, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?)', array_values($request));
+        DB::insert('INSERT INTO users (name, phone, email, password, status, is_admin, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', array_values($request));
 
         // DB::table('users')->insert([
         //     'name' => $request->name,
@@ -140,5 +142,32 @@ class UserController extends Controller
         }
 
         return redirect()->route('admin.user')->with('message', $message);
+    }
+
+    public function getLogin()
+    {
+        return view('client.pages.login');
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required']
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            return redirect()->route('home');
+        };
+
+        return back()->withErrors([
+            'email' => 'not available'
+        ])->onlyInput('email');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('home');
     }
 }

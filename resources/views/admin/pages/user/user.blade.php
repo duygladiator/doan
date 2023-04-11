@@ -53,9 +53,10 @@
                     <th>Phone</th>
                     <th>Email</th>
                     <th>Password</th>
+                    <th>Status</th>
+                    <th>Role</th>
                     <th>Created At</th>
                     <th>Updated At</th>
-                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -73,6 +74,15 @@
                     @else
                       <td>
                         <span class="btn btn-danger">INACTIVE</span>
+                      </td>
+                    @endif
+                    @if ($value->is_admin)
+                      <td>
+                        <span class="btn btn-primary">Admin</span>
+                      </td>
+                    @else
+                      <td>
+                        <span class="btn btn-danger">User</span>
                       </td>
                     @endif
                     {{-- <td>{{ date_format(date_create($value->created_at), 'd/m/Y H:i:s') }}</td> --}}
@@ -117,18 +127,19 @@
                     </tr>
                   @endforelse
                 </tbody>
-                <tfoot>
+                {{-- <tfoot>
                   <tr>
                     <th>Name</th>
                     <th>Phone</th>
                     <th>Email</th>
                     <th>Password</th>
+                    <th>Status</th>
+                    <th>Role</th>
                     <th>Created At</th>
                     <th>Updated At</th>
-                    <th>Status</th>
                     <th>Action</th>
                   </tr>
-                </tfoot>
+                </tfoot> --}}
               </table>
             </div>
             <!-- /.card-body -->

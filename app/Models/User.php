@@ -12,10 +12,10 @@ class User extends Model
 {
     // use HasFactory;
 
-    // public function getAll()
-    // {
-    //     return DB::table('users')->get();
-    // }
+    public function getAll()
+    {
+        return DB::table('users')->get();
+    }
 
 
     use HasApiTokens, HasFactory, Notifiable;

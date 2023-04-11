@@ -8,6 +8,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 use App\Models\Category;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -137,3 +138,11 @@ Route::get('cat-on-user', function () {
     $category = User::with('category')->get()->toArray();
     dd($category);
 });
+
+// Route::get('/login-page', [UserController::class, 'getLogin'])->name('user.getlogin');
+// Route::post('/login', [UserController::class, 'login'])->name('user.login');
+//khac functionName, ->name()
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
