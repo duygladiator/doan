@@ -1,0 +1,59 @@
+.sidebar {
+    position: relative;
+    position: sticky;
+    top: 0;
+}
+
+li:hover {
+    background-color: #919191;
+    border-radius: 5px;
+}
+
+.search-sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: none;
+    overflow: hidden;
+    transition: 0.5s;
+    margin-left: -150px;
+}
+
+.search-sidebar:hover {
+    background-color: grey;
+}
+
+.search {
+    cursor: pointer;
+}
+
+.svg {
+    height: 35px;
+    width: 35x;
+    padding-right: 5px;
+}
+
+.dropdown {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 120px;
+}
+
+.dropdown-menu {
+    border: none;
+    width: 250px;
+    flex-direction: column;
+    display: none;
+}
+
+.dropdown-menu li {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.svg1 {
+    height: 20px;
+}

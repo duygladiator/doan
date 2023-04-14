@@ -9,6 +9,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>@yield('title')</title>
 
+  <link rel="icon" type="image/x-icon" href="{{ asset('ico.ico') }}">
+
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
@@ -24,23 +26,33 @@
 </head>
 
 <body>
-  <!-- Page Preloder -->
-  <div id="preloder">
-    <div class="loader"></div>
-  </div>
-
-  <!-- Humberger Begin -->
-  @include('client.blocks.humberger')
-  <!-- Humberger End -->
-
   <!-- Header Section Begin -->
-  @include('client.blocks.header')
+  {{-- @include('client.blocks.header') --}}
   <!-- Header Section End -->
 
-  @yield('content')
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <!-- Page Preloder -->
+        <div id="preloder">
+          <div class="loader"></div>
+        </div>
+        @include('client.blocks.sidebar')
+        <!-- Humberger Begin -->
+        {{-- @include('client.blocks.humberger') --}}
+        <!-- Humberger End -->
+
+
+      </div>
+      <div class="col-9"> @yield('content')</div>
+    </div>
+  </div>
+
+
+
 
   <!-- Footer Section Begin -->
-  @include('client.blocks.footer')
+  {{-- @include('client.blocks.footer') --}}
   <!-- Footer Section End -->
 
   <!-- Js Plugins -->

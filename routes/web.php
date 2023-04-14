@@ -139,13 +139,10 @@ Route::get('cat-on-user', function () {
     dd($category);
 });
 
-// Route::get('/login-page', [UserController::class, 'getLogin'])->name('user.getlogin');
-// Route::post('/login', [UserController::class, 'login'])->name('user.login');
-//khac functionName, ->name()
+Route::get('/login-page', [UserController::class, 'getLogin'])->name('user.getlogin');
+Route::post('/login', [UserController::class, 'login'])->name('user.login');
+// khac functionName, ->name()
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
