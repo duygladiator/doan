@@ -4,8 +4,7 @@
 @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
 <div class="sidebar">
-  <div class="d-flex flex-column flex-shrink-0 p-3 bg-light"
-    style="width: 280px; height: 100vh; border-right: 1px solid #919191">
+  <div class="side-navi">
     <a href="{{ route('home') }}"
       class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
       <img src="{{ asset('insta-logo.png') }}" alt="">
@@ -70,20 +69,20 @@
         </li>
         <li>
           <a href="#" class="nav-link link-dark">
-            <img src="" alt="">
+            <img class="svg rounded-circle" src="{{ asset('user-placeholder.png') }}" alt="">
             Profile
           </a>
         </li>
       </ul>
     </div>
 
-    <div class="dropdown">
-      <a href="#" class="d-flex align-items-center link-dark text-decoration-none" id="dropdownUser2"
-        data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+    <div class="menu">
+      <div id="menu" class="d-flex align-items-center link-dark text-decoration-none" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        <img class="svg pr-3" src="{{ asset('assets/menu.svg') }}" alt="">
         More
-      </a>
-      <ul class="dropdown-menu" aria-labelledby="dropdownUser2">
+      </div>
+      <div class="dropdown-menu" aria-labelledby="dropdownUser2">
         <li>
           <a class="dropdown-item" href="#">Settings</a>
           <img class="svg1" src="{{ asset('assets/chevron-right.svg') }}" alt="">
@@ -153,7 +152,7 @@
             @endguest
           </ul>
         </div>
-      </ul>
+      </div>
     </div>
   </div>
 </div>

@@ -2,8 +2,16 @@
     position: relative;
     position: sticky;
     top: 0;
+    height: 100vh;
+    border-right: 1px solid #919191;
 }
 
+.side-navi {
+    width: 280px;
+    padding-top: 30px;
+}
+
+#menu:hover,
 li:hover {
     background-color: #919191;
     border-radius: 5px;
@@ -36,10 +44,11 @@ li:hover {
     padding-right: 5px;
 }
 
-.dropdown {
+.sidebar .menu {
     position: absolute;
-    bottom: 0;
-    margin-bottom: 120px;
+    bottom: 40px;
+    width: 80%;
+    cursor: pointer;
 }
 
 .dropdown-menu {

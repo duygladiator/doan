@@ -90,6 +90,18 @@
               <button href="">Follow</button>
             </div>
           </div>
+          <div class="user">
+            <a href="">
+              <img class="user-icon1" src="{{ asset('user-placeholder.png') }}" alt="">
+            </a>
+            <div class="pl-4">
+              <a class="" href="">userId</a>
+              <div class="">Followed by ...</div>
+            </div>
+            <div class="ml-auto">
+              <button href="">Follow</button>
+            </div>
+          </div>
         </div>
 
         <div class="foot">
