@@ -74,18 +74,10 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 // Route::post('/admin/product/save', [ProductController::class, 'store'])->name('admin.product.save');
 
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('auth.admin')->group(function () {
     Route::get('/', function () {
         return view('admin.pages.index');
     })->name('admin');
-
-    // Route::get('/user', function () {
-    //     return view('admin.pages.user');
-    // })->name('admin.user');
-
-    Route::get('/add-user', function () {
-        return view('admin.pages.user.add-user');
-    })->name('admin.add-user');
 
     Route::get('/user', [UserController::class, 'index'])->name('admin.user');
     Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('admin.user.edit');
@@ -118,31 +110,33 @@ Route::prefix('admin')->group(function () {
     Route::post('/product/save', [ProductController::class, 'store'])->name('admin.product.save');
 });
 
-Route::get('them-user', function () {
-    User::create([
-        'name' => 'Member 2',
-        'email' => 'mem2@green.com',
-        'password' => bcrypt('12345')
-    ]);
-});
-
-Route::get('them-category', function () {
-    Category::create([
-        'name' => 'SP02',
-        'user_id' => 2
-    ]);
-});
-
-Route::get('cat-on-user', function () {
-    // $category = User::all()->toArray();
-    $category = User::with('category')->get()->toArray();
-    dd($category);
-});
-
-Route::get('/login-page', [UserController::class, 'getLogin'])->name('user.getlogin');
-Route::post('/login', [UserController::class, 'login'])->name('user.login');
+Route::get('/login', [UserController::class, 'getLogin'])->name('getlogin');
+Route::post('/login', [UserController::class, 'login'])->name('login');
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 // khac functionName, ->name()
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
+// Route::get('them-user', function () {
+//     User::create([
+//         'name' => 'Member 2',
+//         'email' => 'mem2@green.com',
+//         'password' => bcrypt('12345')
+//     ]);
+// });
+
+// Route::get('them-category', function () {
+//     Category::create([
+//         'name' => 'SP02',
+//         'user_id' => 2
+//     ]);
+// });
+
+// Route::get('cat-on-user', function () {
+//     // $category = User::all()->toArray();
+//     $category = User::with('category')->get()->toArray();
+//     dd($category);
+// });
