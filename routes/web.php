@@ -73,7 +73,7 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 // Route::post('/admin/product/save', [ProductController::class, 'store'])->name('admin.product.save');
 
-
+//
 Route::prefix('admin')->middleware('auth.admin')->group(function () {
     Route::get('/', function () {
         return view('admin.pages.index');
