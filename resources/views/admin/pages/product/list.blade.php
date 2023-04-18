@@ -32,6 +32,27 @@
           <div class="card col-md-12">
             <div class="card-header">
               <h3 class="card-title">DataTable with default features</h3>
+
+              <div class="row">
+                <form class="form-inline" action="{{ route('admin.products') }}" method="GET">
+                  <div class="form-group mx-sm-3 mb-2">
+                    <label for="keyword">Search</label>
+                    <input type="text" id="keyword" placeholder="Keyword" name="keyword"
+                      value="{{ request()->keyword ?? '' }}">
+                  </div>
+                  <div class="form-group mx-sm-3 mb-2">
+                    <label for="inputState">Status</label>
+                    <select name="status" id="status">
+                      <option value="">Select</option>
+                      <option value="1">Show</option>
+                      <option value="0">Hide</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-primary mb-2">Search</button>
+                </form>
+
+              </div>
+
               <button type="button" class="btn btn-outline-primary float-right">
                 <a href="{{ route('admin.add-product') }}">
                   Add Product
@@ -43,7 +64,7 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th>Name</th>
+                    <th><a href=""></a> Name</th>
                     <th>Price</th>
                     <th>Discount Price</th>
                     <th>Short Description</th>
@@ -114,6 +135,7 @@
             <!-- /.card-body -->
             <div>
               {{ $products->links() }}
+              {{-- {{ $products->links('pagination::semantic-ui') }} --}}
             </div>
           </div>
           <!-- /.card -->

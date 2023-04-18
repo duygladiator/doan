@@ -22,14 +22,28 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $filter = [];
+        if (!empty($request->keyword)) {
+            $filter[] = ['name', 'like', '%' . $request->keyword . '%'];
+        }
+        if ($request->status !== '' && !is_null($request->status)) {
+            $filter[] = ['status', $request->status];
+        }
+
+        $products = Product::where($filter)->orderBy('id', 'desc')->paginate(5);
+
+        // dd($products);
 
         // $products = DB::table('products')->get();
 
         // $products = Product::all();
 
-        $products = Product::orderBy('id', 'desc')->paginate(5);
+        // $products = Product::where(['name', 'desc', '%' . $keyword . '%'], ['status', $status])
+        //     ->orderBy('id', 'desc')
+        //     ->paginate(5);
+
         return view('admin.pages.product.list', ['products' => $products]);
     }
 
