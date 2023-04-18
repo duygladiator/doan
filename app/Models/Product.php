@@ -10,6 +10,11 @@ class Product extends Model
 {
     use HasFactory;
 
+    // protected $fillable = [
+    //     'name',
+    //     'image_url'
+    // ];
+
     public function addProduct($request)
     {
         $imageName = null;
