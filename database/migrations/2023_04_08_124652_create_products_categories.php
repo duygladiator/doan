@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('products_categories', function (Blueprint $table) {
-            $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('products');
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
+            // $table->unsignedBigInteger('product_id');
+            // $table->foreign('product_id')->references('id')->on('products');
+            // $table->unsignedBigInteger('category_id');
+            // $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 

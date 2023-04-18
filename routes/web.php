@@ -73,8 +73,8 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 // Route::post('/admin/product/save', [ProductController::class, 'store'])->name('admin.product.save');
 
-//
-Route::prefix('admin')->middleware('auth.admin')->group(function () {
+//->middleware('auth.admin')
+Route::prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('admin.pages.index');
     })->name('admin');
@@ -110,9 +110,9 @@ Route::prefix('admin')->middleware('auth.admin')->group(function () {
     Route::post('/product/save', [ProductController::class, 'store'])->name('admin.product.save');
 });
 
-Route::get('/login', [UserController::class, 'getLogin'])->name('getlogin');
-Route::post('/login', [UserController::class, 'login'])->name('login');
-Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+// Route::get('/login', [UserController::class, 'getLogin'])->name('getlogin');
+// Route::post('/login', [UserController::class, 'login'])->name('login');
+// Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 // khac functionName, ->name()
 
 Auth::routes();

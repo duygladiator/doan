@@ -17,13 +17,16 @@ return new class extends Migration
             $table->id();
             $table->string('name', 100);
             $table->integer('price')->default(10000);
-            $table->tinyText('intro');
-            $table->text('content')->nullable();
-            $table->string('image');
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('discount_price')->default(5000);
+            $table->tinyText('short_description');
+            $table->text('description')->nullable();
+            $table->string('image_url');
+            $table->boolean('status')->default(0);
+            $table->string('slug');
+            // $table->unsignedBigInteger('category_id');
+            // $table->foreign('category_id')->references('id')->on('categories');
+            // $table->unsignedBigInteger('user_id');
+            // $table->foreign('user_id')->references('id')->on('users');
             //index cot hay dung`
             $table->index(['name', 'price']);
             $table->timestamps();

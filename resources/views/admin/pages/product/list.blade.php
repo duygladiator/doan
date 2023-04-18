@@ -112,6 +112,9 @@
               </table>
             </div>
             <!-- /.card-body -->
+            <div>
+              {{ $products->links() }}
+            </div>
           </div>
           <!-- /.card -->
         </div>
@@ -137,7 +140,7 @@
   <script src="{{ asset('admin-assets/dist/js/demo.js') }}"></script>
   <!-- page script -->
   <script>
-    $(function() {
+    {{-- $(function() {
       $("#example1").DataTable({
         "responsive": true,
         "autoWidth": false,
@@ -151,6 +154,6 @@
         "autoWidth": false,
         "responsive": true,
       });
-    });
+    }); --}}
   </script>
 @endsection
