@@ -33,7 +33,7 @@
             <div class="card-header">
               <h3 class="card-title">DataTable with default features</h3>
 
-              <div class="row">
+              {{-- <div class="row">
                 <form class="form-inline" action="{{ route('admin.products') }}" method="GET">
                   <div class="form-group mx-sm-3 mb-2">
                     <label for="keyword">Search</label>
@@ -51,10 +51,10 @@
                   <button type="submit" class="btn btn-primary mb-2">Search</button>
                 </form>
 
-              </div>
+              </div> --}}
 
               <button type="button" class="btn btn-outline-primary float-right">
-                <a href="{{ route('admin.add-product') }}">
+                <a href="">
                   Add Product
                 </a>
               </button>
@@ -86,32 +86,26 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @forelse ($products as $value)
+                  @forelse ($articles as $value)
                     <tr>
-                      <td>{{ $value->name }}</td>
-                      <td>{{ number_format($value->price) }}</td>
-                      <td>{{ $value->discount_price }}</td>
-                      <td>{{ $value->short_description }}</td>
-                      <td>{!! $value->description !!}</td>
-                      <td>{{ $value->quantity }}</td>
-                      @if ($value->status)
-                        <td>Show</td>
-                      @else
-                        <td>Hide</td>
-                      @endif
-                      <td>
+                      <td>{{ $value->title }}</td>
+                      <td>{{ $value->slug }}</td>
+                      <td>{{ $value->description }}</td>
+                      <td>{{ $value->author }}</td>
+                      <td>{{ $value->tags }}</td>
+                      {{-- <td>
                         <img height="100" src="{{ asset('images') . '/' . $value->image_url }}" alt="">
                       </td>
-                      {{-- <td>{{ $value->image_url }}</td> --}}
+                      <td>{{ $value->image_url }}</td>
                       <td><a href="{{ route('admin.product.edit', [$value->id]) }}">Edit</a> |
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                           data-bs-target="#exampleModal">
                           DELETE
-                        </button>
+                        </button> --}}
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                      <!-- Modal -->
+                      {{-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                           aria-hidden="true">
                           <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
@@ -131,7 +125,7 @@
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </div> --}}
                       </td>
                       </td>
                     </tr>
@@ -142,7 +136,7 @@
             </div>
             <!-- /.card-body -->
             <div>
-              {{ $products->links() }}
+              {{-- {{ $articles->links() }} --}}
               {{-- {{ $products->links('pagination::semantic-ui') }} --}}
             </div>
           </div>

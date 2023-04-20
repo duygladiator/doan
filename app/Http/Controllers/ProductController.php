@@ -32,7 +32,18 @@ class ProductController extends Controller
             $filter[] = ['status', $request->status];
         }
 
-        $products = Product::where($filter)->orderBy('id', 'desc')->paginate(5);
+        $sortBy = $request->input('sort-by') ?? 'id';
+        $sortType = $request->input('sort-type');
+
+        $sort = ['desc', 'asc'];
+
+        if (!empty($sortType) && in_array($sortType, $sort)) {
+            $sortType = $sortType === 'desc' ? 'asc' : 'desc';
+        } else {
+            $sortType = 'desc';
+        }
+
+        $products = Product::where($filter)->orderBy($sortBy, $sortType)->paginate(5);
 
         // dd($products);
 

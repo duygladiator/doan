@@ -48,7 +48,9 @@ class UserController extends Controller
         // $users = DB::table('users')->where('id', '>', 2)->whereNotBetween('id', [1, 7])->get();
         // $users = DB::table('users')->whereNotNull('status')->get();
 
-        $users = $this->model->getAll();
+        // $users = $this->model->getAll();
+
+        $users = User::all();
 
         return view('admin.pages.user.user', ['users' => $users]);
     }

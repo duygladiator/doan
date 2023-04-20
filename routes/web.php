@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\TestSendMailController;
 use App\Http\Controllers\UserController;
 use App\Models\Category;
 use App\Models\User;
@@ -74,16 +76,16 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 // Route::post('/admin/product/save', [ProductController::class, 'store'])->name('admin.product.save');
 
 //->middleware('auth.admin')
-Route::prefix('admin')->group(function () {
+Route::prefix('/admin')->group(function () {
     Route::get('/', function () {
-        return view('admin.pages.index');
+        return view('admin.master');
     })->name('admin');
 
     Route::get('/user', [UserController::class, 'index'])->name('admin.user');
+    Route::post('/user/save', [UserController::class, 'store'])->name('admin.user.save');
     Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('admin.user.edit');
     Route::post('/user/update', [UserController::class, 'update'])->name('admin.user.update');
     Route::get('user/delete/{id}', [UserController::class, 'delete'])->name('admin.user.delete');
-    Route::post('/user/save', [UserController::class, 'store'])->name('admin.user.save');
     // Route::get('/user', [UserController::class, 'index']);
 
 
@@ -103,11 +105,13 @@ Route::prefix('admin')->group(function () {
         return view('admin.pages.blog');
     })->name('admin.blog');
 
+    Route::get('/articles', [ArticleController::class, 'index'])->name('admin.articles');
+
     Route::get('/add-product', function () {
         return view('admin.pages.product.add-product');
     })->name('admin.add-product');
 
-    Route::post('/product/save', [ProductController::class, 'store'])->name('admin.product.save');
+    // Route::post('/product/save', [ProductController::class, 'store'])->name('admin.product.save');
 });
 
 // Route::get('/login', [UserController::class, 'getLogin'])->name('getlogin');
@@ -117,7 +121,9 @@ Route::prefix('admin')->group(function () {
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/test-send-mail', [TestSendMailController::class, 'sendMail']);
 
 
 // Route::get('them-user', function () {
