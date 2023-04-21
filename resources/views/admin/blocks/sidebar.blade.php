@@ -102,10 +102,10 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('admin.posts') }}"
+          <a href="{{ route('admin.articles') }}"
             class="nav-link {{ request()->route()->getName() === 'admin.blog'? 'active': '' }}">
             <i class="far fa-circle nav-icon"></i>
-            <p>Blog</p>
+            <p>Articles</p>
           </a>
         </li>
       </ul>

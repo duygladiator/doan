@@ -75,13 +75,16 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 // Route::post('/admin/product/save', [ProductController::class, 'store'])->name('admin.product.save');
 
-//->middleware('auth.admin')
-Route::prefix('/admin')->group(function () {
+//
+Route::prefix('/admin')->middleware('auth.admin')->group(function () {
     Route::get('/', function () {
         return view('admin.master');
     })->name('admin');
 
     Route::get('/user', [UserController::class, 'index'])->name('admin.user');
+    Route::get('/user/create', function () {
+        return view('admin.pages.user.add-user');
+    })->name('admin.user.create');
     Route::post('/user/save', [UserController::class, 'store'])->name('admin.user.save');
     Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('admin.user.edit');
     Route::post('/user/update', [UserController::class, 'update'])->name('admin.user.update');
@@ -90,9 +93,9 @@ Route::prefix('/admin')->group(function () {
 
 
 
-    Route::get('/products', function () {
-        return view('admin.pages.product.list');
-    })->name('admin.products');
+    // Route::get('/products', function () {
+    //     return view('admin.pages.product.list');
+    // })->name('admin.products');
 
     Route::get('/products', [ProductController::class, 'index'])->name('admin.products');
     Route::post('/products/save', [ProductController::class, 'store'])->name('admin.product.save');
@@ -121,7 +124,7 @@ Route::prefix('/admin')->group(function () {
 
 Auth::routes();
 
-// Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/test-send-mail', [TestSendMailController::class, 'sendMail']);
 

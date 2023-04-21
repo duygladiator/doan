@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('title')
-  Products List
+  Articles List
 @endsection
 
 @section('content')
@@ -55,7 +55,7 @@
 
               <button type="button" class="btn btn-outline-primary float-right">
                 <a href="">
-                  Add Product
+                  Add Article
                 </a>
               </button>
             </div>
@@ -73,13 +73,10 @@
                       ID</th> --}}
                     {{-- <th><a href="?sort-by=id&sort-type={{ $sortType }}"></a> Name</th> --}}
                     <th>Name</th>
-                    <th>Price</th>
-                    <th>Discount Price</th>
-                    <th>Short Description</th>
+                    <th>Slug</th>
                     <th>Description</th>
-                    <th>Quantity</th>
-                    <th>Status</th>
-                    <th>Image</th>
+                    <th>Author</th>
+                    <th>Tags</th>
                     {{-- <th>Created At</th>
                     <th>Updated At</th> --}}
                     <th>Action</th>
@@ -96,16 +93,16 @@
                       {{-- <td>
                         <img height="100" src="{{ asset('images') . '/' . $value->image_url }}" alt="">
                       </td>
-                      <td>{{ $value->image_url }}</td>
-                      <td><a href="{{ route('admin.product.edit', [$value->id]) }}">Edit</a> |
+                      <td>{{ $value->image_url }}</td> --}}
+                      <td class="d-flex"><a href="{{ route('admin.product.edit', [$value->id]) }}">Edit</a> |
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                           data-bs-target="#exampleModal">
                           DELETE
-                        </button> --}}
+                        </button>
 
-                      <!-- Modal -->
-                      {{-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                           aria-hidden="true">
                           <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
@@ -125,7 +122,7 @@
                               </div>
                             </div>
                           </div>
-                        </div> --}}
+                        </div>
                       </td>
                       </td>
                     </tr>

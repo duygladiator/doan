@@ -39,7 +39,7 @@
             <div class="card-header">
               <h3 class="card-title">DataTable with default features</h3>
               <button type="button" class="btn btn-outline-primary waves-effect float-right">
-                <a href="{{ route('admin.user.save') }}">
+                <a href="{{ route('admin.user.create') }}">
                   Add User
                 </a>
               </button>
