@@ -20,9 +20,10 @@ return new class extends Migration
             $table->integer('discount_price')->default(5000);
             $table->tinyText('short_description');
             $table->text('description')->nullable();
-            $table->string('image_url');
+            $table->string('image_url')->nullable();
             $table->boolean('status')->default(0);
-            $table->string('slug');
+            $table->string('slug')->nullable();
+            $table->string('quantity')->nullable();
             // $table->unsignedBigInteger('category_id');
             // $table->foreign('category_id')->references('id')->on('categories');
             // $table->unsignedBigInteger('user_id');

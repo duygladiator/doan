@@ -54,7 +54,7 @@
               </div> --}}
 
               <button type="button" class="btn btn-outline-primary float-right">
-                <a href="">
+                <a href="{{ route('admin.article.create') }}">
                   Add Article
                 </a>
               </button>

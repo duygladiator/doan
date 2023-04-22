@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('title')
-  Add Product
+  Add Article
 @endsection
 
 @section('content')
@@ -31,43 +31,27 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Add Product</h3>
+                <h3 class="card-title">Add Article</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" method="post" action="{{ route('admin.product.save') }}"
+              <form role="form" method="post" action="{{ route('admin.article.save') }}"
                 enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control {{ $errors->first('name') ? 'is-invalid' : '' }}"
-                      name="name" id="name" placeholder="Name" value="{{ old('name') }}">
-                    @error('name')
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control {{ $errors->first('title') ? 'is-invalid' : '' }}"
+                      name="title" id="title" placeholder="Title" value="{{ old('title') }}">
+                    @error('title')
                       <div class="text-danger">{{ $message }}</div>
                     @enderror
                   </div>
                   <div class="form-group">
-                    <label for="price">Price</label>
-                    <input type="text" class="form-control" name="price" id="price" placeholder="Price"
-                      value="{{ old('price') }}">
-                    @error('price')
-                      <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                  </div>
-                  <div class="form-group">
-                    <label for="discount_price">Discount Price</label>
-                    <input type="text" class="form-control" name="discount_price" id="discount_price"
-                      placeholder="Discount Price" value="{{ old('discount_price') }}">
-                    @error('discount_price')
-                      <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                  </div>
-                  <div class="form-group">
-                    <label for="short_description">Short Description</label>
-                    <input type="text" class="form-control" name="short_description" id="short_description"
-                      placeholder="Short Description" value="{{ old('short_description') }}">
-                    @error('short_description')
+                    <label for="slug">Slug</label>
+                    <input type="text" class="form-control" name="slug" id="slug" placeholder="Slug"
+                      value="{{ old('slug') }}">
+                    @error('slug')
                       <div class="text-danger">{{ $message }}</div>
                     @enderror
                   </div>
@@ -79,15 +63,7 @@
                       <div class="text-danger">{{ $message }}</div>
                     @enderror
                   </div>
-                  {{-- <div class="form-group">
-                    <label for="quantity">Quantity</label>
-                    <input type="text" class="form-control" name="quantity" id="quantity" placeholder="Quantity"
-                      value="{{ old('quantity') }}">
-                    @error('quantity')
-                      <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                  </div> --}}
-                  <div class="form-group d-flex gap-4">
+                  {{-- <div class="form-group d-flex gap-4">
                     <label for="status">Status:</label>
                     <div class="form-check">
                       <input class="form-check-input" value="1" type="radio" name="status" id="status">
@@ -101,14 +77,7 @@
                         Hide
                       </label>
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="image_url">Image</label>
-                    <input type="file" class="form-control" name="image_url" id="image_url">
-                    @error('image_url')
-                      <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                  </div>
+                  </div> --}}
 
                   {{-- <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -132,7 +101,28 @@
   </div>
 @endsection
 
-{{-- @section('js-custom')
+@section('js-custom')
+  <script>
+    $(document).ready(function() {
+      $('#title').on('keyup', function() {
+        let title = $(this).val();
+        $.ajax({
+          method: "POST",
+          url: "{{ route('article.get.slug') }}",
+          data: {
+            "title": title,
+            "_token": "{{ csrf_token() }}"
+          },
+          success: function(res) {
+            $('#slug').val(res.title);
+          },
+          error: function(res) {
+
+          }
+        });
+      });
+    });
+  </script>
   <script>
     ClassicEditor
       .create(document.querySelector('#description'))
@@ -140,4 +130,4 @@
         console.error(error);
       });
   </script>
-@endsection --}}
+@endsection

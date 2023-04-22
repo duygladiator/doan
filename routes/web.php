@@ -75,8 +75,8 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 // Route::post('/admin/product/save', [ProductController::class, 'store'])->name('admin.product.save');
 
-//
-Route::prefix('/admin')->middleware('auth.admin')->group(function () {
+//->middleware('auth.admin')
+Route::prefix('/admin')->group(function () {
     Route::get('/', function () {
         return view('admin.master');
     })->name('admin');
@@ -108,7 +108,13 @@ Route::prefix('/admin')->middleware('auth.admin')->group(function () {
         return view('admin.pages.blog');
     })->name('admin.blog');
 
-    Route::get('/articles', [ArticleController::class, 'index'])->name('admin.articles');
+    Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
+    Route::resource('article', ArticleController::class);
+    Route::get('/article/create', function () {
+        return view('admin.pages.article.create');
+    })->name('admin.article.create');
+    Route::post('/article/save', [ArticleController::class, 'store'])->name('admin.article.save');
+    Route::post('/article-get-slug', [ArticleController::class, 'getSlug'])->name('article.get.slug');
 
     Route::get('/add-product', function () {
         return view('admin.pages.product.add-product');
