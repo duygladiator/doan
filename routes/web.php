@@ -8,8 +8,6 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\TestSendMailController;
 use App\Http\Controllers\UserController;
-use App\Models\Category;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
