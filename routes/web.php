@@ -4,6 +4,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\TestSendMailController;
@@ -105,6 +106,8 @@ Route::prefix('/admin')->group(function () {
     Route::get('/blog', function () {
         return view('admin.pages.blog');
     })->name('admin.blog');
+
+    Route::resource('product_category', ProductCategoryController::class);
 
     Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
     Route::resource('article', ArticleController::class);

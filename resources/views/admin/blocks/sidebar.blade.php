@@ -95,6 +95,13 @@
           </a>
         </li>
         <li class="nav-item">
+          <a href="{{ route('product_category.index') }}"
+            class="nav-link {{ request()->route()->getName() === 'admin.products'? 'active': '' }}">
+            <i class="far fa-circle nav-icon"></i>
+            <p>Product Category</p>
+          </a>
+        </li>
+        <li class="nav-item">
           <a href="{{ route('admin.blog') }}"
             class="nav-link {{ request()->route()->getName() === 'admin.blog'? 'active': '' }}">
             <i class="far fa-circle nav-icon"></i>
