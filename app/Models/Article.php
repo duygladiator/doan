@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class Article extends Model
 {
-    use HasFactory, SoftDeletes, sluggable;
+    use HasFactory, SoftDeletes, Sluggable;
 
     protected $table = 'article';
 
