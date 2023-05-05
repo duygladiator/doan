@@ -44,8 +44,8 @@ class ArticleController extends Controller
      */
     public function store(CreateArticle $request)
     {
-        $article = Article::create();
-        $check = Article::insert();
+        // $article = Article::create();
+        // $check = Article::insert();
 
         $this->articleModel->addArticle($request);
 
