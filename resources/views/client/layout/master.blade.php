@@ -30,7 +30,7 @@
   {{-- @include('client.blocks.header') --}}
   <!-- Header Section End -->
 
-  <div class="container">
+  {{-- <div class="container">
     <div class="row">
       <div class="col-3">
         <!-- Page Preloder -->
@@ -39,13 +39,22 @@
         </div>
         @include('client.blocks.sidebar')
         <!-- Humberger Begin -->
-        {{-- @include('client.blocks.humberger') --}}
+        @include('client.blocks.humberger')
         <!-- Humberger End -->
-
-
       </div>
       <div class="col-9"> @yield('content')</div>
     </div>
+  </div> --}}
+
+  <div class="row">
+    <div class="col-3">
+      <div id="preloder">
+        <div class="loader"></div>
+      </div>
+      @include('client.blocks.sidebar')
+
+    </div>
+    <div class="col-9"> @yield('content')</div>
   </div>
 
 
