@@ -46,7 +46,7 @@ Route::get('/master', function () {
 
 //refactor->Controller
 // Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/', [ClientHomeController::class, 'index'])->name('home');
+Route::get('/', [ClientHomeController::class, 'index'])->name('client.home');
 
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');

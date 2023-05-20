@@ -13,7 +13,7 @@
     <div class="container">
       <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item {{ request()->route()->getName() === 'home'? 'active': '' }}">
-          <a href="{{ route('home') }}" class="nav-link" aria-current="page">
+          <a href="{{ route('client.home') }}" class="nav-link" aria-current="page">
             <img class="svg" src="{{ asset('assets/home-icon.svg') }}" alt="">
             Home
           </a>
