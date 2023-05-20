@@ -14,15 +14,19 @@
 
       <div class="col-8">
         <div class="carousel">
-          <img class="user-icon" src="{{ asset('user-placeholder.png') }}" alt="">
-          <div>user name</div>
+          <div class="feed">
+            @foreach ($users as $user)
+              <img class="user-icon" src="{{ asset('user-placeholder.png') }}" alt="">
+              <div>{{ $user->name }}</div>
+            @endforeach
+          </div>
         </div>
 
-        <div class="post">
+        <div class="post justify-content-center">
           <div class="post-header d-flex">
             <div class="user">
-              <div class="post-user-avt">
-                <img src="{{ asset('user-placeholder.png') }}" alt="">
+              <div>
+                <img class="post-user-avt" src="{{ asset('user-placeholder.png') }}" alt="">
               </div>
               <div class="post-user-name">user name</div>
             </div>
@@ -31,6 +35,25 @@
             </div>
           </div>
           <div class="post-body">
+
+            <div class="card" style="width: 28rem;">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                  content.</p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+              </ul>
+              <div class="card-body">
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+              </div>
+            </div>
+
             <div class="post-carousel">
               post carousel
             </div>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\Client\HomeController as ClientHomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductCategoryController;
@@ -44,7 +45,10 @@ Route::get('/master', function () {
 // })->name('contact');
 
 //refactor->Controller
-Route::get('/', [HomeController::class, 'index'])->name('home');
+// Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [ClientHomeController::class, 'index'])->name('home');
+
+
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');

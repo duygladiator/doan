@@ -1,8 +1,27 @@
-.user {
+.carousel {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    column-count: 8;
+    column-gap: 10px;
+    width: 600px;
+    justify-content: center;
+}
+
+.feed {
+    max-width: 60px;
+    justify-content: center;
+}
+
+/* .user {
     display: flex;
     cursor: pointer;
     align-items: center;
     padding: 4px 0 4px 0;
+} */
+
+.post-user-avt {
+    height: 30px;
+    border-radius: 50%;
 }
 
 .user-icon {
