@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/nice-select.css') }}" type="text/css">
   <link rel="stylesheet" href="{{ asset('assets/css/jquery-ui.min.css') }}" type="text/css">
   <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}" type="text/css">
+  <link rel="stylesheet" href="{{ asset('assets/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/slicknav.min.css') }}" type="text/css">
   <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css">
 </head>

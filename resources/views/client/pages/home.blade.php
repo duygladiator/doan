@@ -6,10 +6,47 @@
 
 <link rel="stylesheet" href="{{ asset('assets/css/home-suggest.css') }}">
 
+<link rel="stylesheet" href="{{ asset('assets/css/home-feed.css') }}">
+
 @section('content')
   <div class="container">
     <div class="row">
-      <div class="col-8">main</div>
+
+      <div class="col-8">
+        <div class="carousel">
+          <img class="user-icon" src="{{ asset('user-placeholder.png') }}" alt="">
+          <div>user name</div>
+        </div>
+
+        <div class="post">
+          <div class="post-header d-flex">
+            <div class="user">
+              <div class="post-user-avt">
+                <img src="{{ asset('user-placeholder.png') }}" alt="">
+              </div>
+              <div class="post-user-name">user name</div>
+            </div>
+            <div class="opt">
+              popup-opt
+            </div>
+          </div>
+          <div class="post-body">
+            <div class="post-carousel">
+              post carousel
+            </div>
+            <div>
+              <div class="post-like">like post</div>
+              <div class="post-cmt">cmt post</div>
+              <div class="post-share">share post</div>
+            </div>
+            <div class="post-total-like">total like</div>
+            <div class="post-content">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="suggest col-4 d-inline">
         <div class="user">
           <a href="">

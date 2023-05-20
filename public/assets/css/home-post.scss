@@ -1,0 +1,11 @@
+.carousel {
+    padding: 20px 0px 20px 0px;
+    display: grid;
+    column-gap: 15px;
+    align-items: center;
+    .carousel-item {
+        .user-icon {
+            width: 50px;
+        }
+    }
+}
